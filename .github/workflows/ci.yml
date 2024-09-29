@@ -25,3 +25,6 @@ jobs:
 
       - name: Build with CMake
         run: cmake --build .
+
+      - name: Run Unit Tests #Запуск тестов
+        run: ctest --output-on-failure
