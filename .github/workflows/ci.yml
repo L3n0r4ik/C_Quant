@@ -1,0 +1,27 @@
+name: CMake Build
+
+#Запуск действий ниже при каждом push и pull req
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code #Клонирование репозитория
+        uses: actions/checkout@v2
+
+      - name: Install CMake #Установка CMake
+        run: sudo apt-get install cmake
+
+      - name: Configure CMake #Настройка CMake и сборка проект
+        run: cmake .
+
+      - name: Build with CMake
+        run: cmake --build .
