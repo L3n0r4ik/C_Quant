@@ -28,3 +28,6 @@ jobs:
 
       - name: Run Unit Tests #Запуск тестов
         run: ctest --output-on-failure
+
+      - name: Run Benchmarks
+        run: ./benchmark_tests

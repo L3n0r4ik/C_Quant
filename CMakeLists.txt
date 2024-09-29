@@ -29,3 +29,14 @@ add_test(
         NAME UnitTests
         COMMAND unit_tests
 )
+
+include(FetchContent)
+FetchContent_Declare(
+        googlebenchmark
+        URL https://github.com/google/benchmark/archive/refs/tags/v1.6.0.zip
+)
+FetchContent_MakeAvailable(googlebenchmark)
+
+#Настройка Google Benchmark
+add_executable(benchmark_tests benchmark.cpp benchmark.cpp)  #Файл с бенчмарком
+target_link_libraries(benchmark_tests benchmark::benchmark)
